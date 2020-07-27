@@ -1,5 +1,6 @@
 * {
   margin: 0;
+  font-family: "Ubuntu", sans-serif;
 }
 
 body {
@@ -19,13 +20,41 @@ body {
   justify-content: space-between;
 }
 
+.app_dropdown {
+  background-color: white;
+}
+
+.app_header > h1 {
+  color: #fc3c3c;
+  font-size: 2rem;
+}
+
 .app__left {
   flex: 0.9;
+}
+
+.app__right {
+  display: flex;
+  flex-direction: column;
+}
+
+.app__right .MuiCardContent-root {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .app_starts {
   display: flex;
   justify-content: space-between;
+}
+
+.app__graph {
+  flex-grow: 1;
+}
+
+.app__graphTitle {
+  padding: 20px;
 }
 
 @media (max-width: 990px) {

@@ -1,10 +1,11 @@
 import React from "react";
 import numeral from "numeral";
 import { Circle, Popup } from "react-leaflet";
+import "./map.css";
 
 const casesTypeColors = {
   cases: {
-    hex: "#CC1034",
+    hex: "#FF0000",
     multiplier: 800,
   },
   recovered: {
@@ -12,7 +13,7 @@ const casesTypeColors = {
     multiplier: 1200,
   },
   deaths: {
-    hex: "#fb443",
+    hex: "#8b0000",
     multiplier: 2000,
   },
 };
@@ -21,6 +22,9 @@ export const sortData = (data) => {
   const sortedData = [...data];
   return sortedData.sort((a, b) => (a.cases > b.cases ? -1 : 1));
 };
+
+export const prettyPrintStat = (stat) =>
+  stat ? `+${numeral(stat).format("0.0a")}` : "+0";
 
 export const showDataOnMap = (data, casesType = "cases") =>
   data.map((country) => (
@@ -34,16 +38,21 @@ export const showDataOnMap = (data, casesType = "cases") =>
       }
     >
       <Popup>
-        <div>
+        <div className="info-container">
           <div
-            style={{
-              backgroundImage: `url(${country.countryInfo.flag})`,
-            }}
+            className="info-flag"
+            style={{ backgroundImage: `url(${country.countryInfo.flag})` }}
           />
-          <div>{country.country}</div>
-          <div>Cases: {numeral(country.cases).format("0,0")}</div>
-          <div>Recovered: {numeral(country.recovered).format("0,0")}</div>
-          <div>Deaths: {numeral(country.deaths).format("0,0")}</div>
+          <div className="info-name">{country.country}</div>
+          <div className="info-cases">
+            Cases: {numeral(country.cases).format("0,0")}
+          </div>
+          <div className="recovered">
+            Recovered: {numeral(country.recovered).format("0,0")}
+          </div>
+          <div className="info-deaths">
+            Deaths: {numeral(country.deaths).format("0,0")}
+          </div>
         </div>
       </Popup>
     </Circle>
