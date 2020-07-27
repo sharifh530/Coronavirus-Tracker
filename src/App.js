@@ -146,12 +146,12 @@ function App() {
       </div>
       <Card className="app__right">
         <CardContent>
-          <h3 className="app__graphTitle">Live cases by country</h3>
+          <h2 className="app__graphTitle">Live cases by country</h2>
           {/* Table */}
           <Table countries={tableData} />
-          <h3 className="app__graphTitle">
+          <h2 className="app__graphTitle">
             Worldwide New {casesType.toUpperCase()}
-          </h3>
+          </h2>
           <LineGraph className="app__graph" casesType={casesType} />
           {/* Graph */}
         </CardContent>
