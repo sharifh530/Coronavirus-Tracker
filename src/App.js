@@ -150,7 +150,7 @@ function App() {
           {/* Table */}
           <Table countries={tableData} />
           <h2 className="app__graphTitle">
-            Worldwide New {casesType.toUpperCase()}
+            Worldwide New {casesType}
           </h2>
           <LineGraph className="app__graph" casesType={casesType} />
           {/* Graph */}
